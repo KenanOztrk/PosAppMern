@@ -1,4 +1,5 @@
 import { BrowserRouter, Routes, Route} from "react-router-dom";
+import Register from "./pages/auth/Register";
 import CartPage from "./pages/CartPage";
 import CustomerPage from "./pages/CustomerPage";
 import HomePage from "./pages/HomePage";
@@ -15,6 +16,8 @@ function App() {
           <Route path="/invoices" element = { <InvoicePage/> } />
           <Route path="/customers" element = { <CustomerPage/> } />
           <Route path="/statistic" element = { <StatisticPage/> } />
+          <Route path="/register" element = { <Register/> } />
+
         </Routes>
       </BrowserRouter>
     </>
