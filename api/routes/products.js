@@ -9,7 +9,7 @@ router.get("/get-all", async (req, res) => {
         const products = await Product.find()
         res.status(200).json(products)
     } catch (error) {
-        console.log(error);
+        res.status(500).json(error)
     }
 })
 
@@ -19,7 +19,7 @@ router.post("/add-product", async (req, res) => {
         await newProduct.save()
         res.status(200).json("Item added succesfully.")
     } catch (error) {
-        res.status(400).json(error)
+        res.status(500).json(error)
     }
 })
 
@@ -28,7 +28,7 @@ router.put("/update-product", async (req, res) => {
         await Product.findOneAndUpdate({ _id: req.body.productId }, req.body)
         res.status(200).json("Item Updated Successfully")
     } catch (error) {
-        console.log(error);
+        res.status(500).json(error)
     }
 })
 
@@ -37,7 +37,7 @@ router.delete("/delete-product", async (req, res) => {
         await Product.findOneAndDelete({ _id: req.body.productId })
         res.status(200).json("Item Deleted Successfully")
     } catch (error) {
-        console.log(error);
+        res.status(500).json(error)
     }
 })
 
